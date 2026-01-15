@@ -1,0 +1,23 @@
+function n = OptimalSampleSize(alpha, experiment_count)
+    mu = 2800; sigma = 708; epsilon = 224;
+    p = 0; n = 0;
+
+    while (p < 1 - alpha)
+        n = n + 1;
+        kedv = 0;
+
+        for i = 1 : experiment_count
+            X = normrnd(mu, sigma, 1, n);   %Laplace, Cauchy, kozrefogas
+            
+            if abs(mean(X) - mu) < epsilon 
+                kedv = kedv + 1;
+            end
+        end
+
+        p = kedv / experiment_count;
+
+        stem(n, p, "m");
+        hold on;
+        drawnow;
+    end
+end
