@@ -10,7 +10,7 @@ function X = GeoTrunc(p, n)
         % X(i) = -1/(1-exp(-p))*log(U);
     
         lambda = -log(1-p);
-        X(i) = ExactInversion("exponential", lambda, 1);
+        X(i) = ExactInv("exponential", lambda, 1);
         X(i) = ceil(X(i));
     end
 end

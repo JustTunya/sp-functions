@@ -1,5 +1,7 @@
 function f = ContinuousPDF_2D(x, y, distribution_type, ~)
-    if ~isequal(size(x), size(y)), error("X must be equal to Y"); end
+    if ~isequal(size(x), size(y))
+        error("X must be equal to Y");
+    end
 
     f = zeros(size(x));
 
